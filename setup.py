@@ -6,11 +6,19 @@ with open('README.md', 'r') as f:
 setup(
     name='pgpackup',
     version='0.1.0',
-    author='Keith Thompson',
-    author_email='keith@linuxacademy.com',
+    author='Pankaj Chaturvedi',
+    author_email='pankajchaturvedihere@gmail.com',
     description='A utility for backing up PostgreSQL databases',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/Pnkz11/LinuxAcademy.git',
-    packages=find_packages('src')
+    packages=find_packages('src'),
+    package_dir={'': 'src'},
+    install_requires=['boto3'],
+    python_requires='>=3.6',
+    entry_points={
+        'console_scripts': [
+            'pgbackup=pgbackup.cli:main',
+        ],
+    }
 )
